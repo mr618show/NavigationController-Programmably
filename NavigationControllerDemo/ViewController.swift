@@ -9,17 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func didTapRedButton(_ sender: Any) {
+        pushViewController(title: "Red", color: .red)
     }
-
+    @IBAction func didTapBlueButton(_ sender: Any) {
+        pushViewController(title: "Blue", color: .blue)
+    }
+    
+    private func pushViewController(title: String, color: UIColor) {
+        let vc = UIViewController()
+        vc.view.backgroundColor = color
+        vc.title = title
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
